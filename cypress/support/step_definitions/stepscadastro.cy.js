@@ -63,11 +63,8 @@ But('nao aceitar os termos', () => {
     CadastroPage.checkandoBoxTerms();
     CadastroPage.uncheckBoxTerms();
 })
-And('clicar em Sign Up', () => {
-    CadastroPage.clickBtnSignUp();
-})
 Then('o usuario nao e cadastrado com sucesso e retorna mensagem de termos nao aceitos', () => {
-    CadastroPage.validTerms();
+    CadastroPage.validTermsCheck();
 })
 
 //------------------------- Cadastrando usuario com email incompleto
@@ -82,7 +79,7 @@ And('preencher o formulario', () => {
 But('preencher o email incompleto', () => {
     CadastroPage.preencherNewEmail('teste@t');
 })
-Then('o usuario nao e cadastrado com sucesso e retorna mensagem de termos nao aceitos', () => {
+Then('o usuario nao e cadastrado com sucesso e retorna mensagem de email invalido', () => {
     CadastroPage.validEmailInvalid();
 })
 
@@ -96,9 +93,9 @@ And('preencher o formulario', () => {
     CadastroPage.preencherLastName().type('Teste');
     CadastroPage.preencherNewEmail().type('dycjh@example6.com')
 })
-But('preencher a senha com apenas 7 caracteres ', () => {
+But('preencher a senha com apenas 7 caracteres', () => {
     CadastroPage.preencherNewPassword('1234567')
 })
-Then('preencher a senha com apenas 7 caracteres ', () => {
+Then('o usuario nao e cadastrado com sucesso e retorna mensagem de senha invalido', () => {
     CadastroPage.validPasswordInvalid();
 })
