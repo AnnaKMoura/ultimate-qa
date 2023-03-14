@@ -29,13 +29,11 @@ Then o usuario nao e cadastrado com sucesso e retorna mensagem de termos nao ace
 Scenario: Cadastrando usuario com email incompleto
 Given que o usuario esteja na pagina de login
 When o usuario clicar em create a new account
-And preencher o formulario
-But preencher o email incompleto
+But preencher o formulario com email incompleto
 Then o usuario nao e cadastrado com sucesso e retorna mensagem de email invalido
 
 Scenario: Cadastrando usuario com senha fora do padrao
 Given que o usuario esteja na pagina de login
 When o usuario clicar em create a new account
-And preencher o formulario
-But preencher a senha com apenas 7 caracteres 
+But preencher a senha com apenas 7 caracteres
 Then o usuario nao e cadastrado com sucesso e retorna mensagem de senha invalido

@@ -4,10 +4,10 @@ const HomePage = require('../index/home.page')
 
 //----------> Logando com usuario valido
 When('o usuario preencher email valido', () => {
-    HomePage.preencherInputLogin().type('teste@mock.com.br');
+    HomePage.preencherInputLogin().type('email');
 })
 And('senha valida', () => {
-    HomePage.preencherInputPassLog().type('12345678');
+    HomePage.preencherInputPassLog().type('senha');
 })
 And('clicar em sign in', () => {
     HomePage.clickBtnLogin();
@@ -18,10 +18,10 @@ Then('o usuario e autenticado com sucesso', () => {
 
 //----------> Logando com usuario nao cadastrado 
 When('o usuario preencher email invalido', () => {
-    HomePage.preencherInputLogin().type('teste@mockmock.com.br');
+    HomePage.preencherInputLogin().type('email');
 })
 And('preencher senha invalida', () => {
-    HomePage.preencherInputPassLog().type('12345678');
+    HomePage.preencherInputPassLog().type('senha');
 })
 And('clicar em sign in', () => {
     HomePage.clickBtnLogin();
@@ -32,10 +32,10 @@ Then('o usuario nao e autenticado e a mensagem de email ou senha invalida e exib
 
 //----------> Logando com e-mail fora do padrão
 When('o usuario preencher email fora do padrao exigido', () => {
-    HomePage.preencherInputLogin().type('teste@mock');
+    HomePage.preencherInputLogin().type('email');
 })
 And('ir para o input de senha', () => {
-    HomePage.preencherInputPassLog().type('123');
+    HomePage.preencherInputPassLog().type('senha');
 })
 
 Then('e exibida uma mensagem de erro solicitando email valido', () => {

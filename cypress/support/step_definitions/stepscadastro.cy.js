@@ -1,7 +1,6 @@
 /// <reference types= 'Cypress' />
 /* global Then, When, Given */
 
-const { type } = require('cypress/types/jquery');
 const CadastroPage = require('../index/cadastro.page')
 
 //------------------------- Cadastrando usuario valido
@@ -10,10 +9,10 @@ When('o usuario clicar em create a new account', () => {
     CadastroPage.createNewAcc();    
 })
 And('preencher o formulario', () => {
-    CadastroPage.preencherFirstName().type('Aninha');
-    CadastroPage.preencherLastName().type('Teste');
-    CadastroPage.preencherNewEmail().type('dycjh@example5.com');
-    CadastroPage.preencherNewPassword().type('12345678');
+    CadastroPage.preencherFirstName().type('First Name');
+    CadastroPage.preencherLastName().type('Last Name');
+    CadastroPage.preencherNewEmail().type('Email');
+    CadastroPage.preencherNewPassword().type('Senha');
 
 })
 And('aceitar os termos', () => {
@@ -34,10 +33,10 @@ When('o usuario clicar em create a new account', () => {
     CadastroPage.createNewAcc();    
 })
 And('preencher o formulario com dados ja existentes', () => {
-    CadastroPage.preencherFirstName().type('Aninha');
-    CadastroPage.preencherLastName().type('Teste');
-    CadastroPage.preencherNewEmail().type('dycjh@example.com');
-    CadastroPage.preencherNewPassword().type('12345678');
+    CadastroPage.preencherFirstName().type('First Name');
+    CadastroPage.preencherLastName().type('Last Name');
+    CadastroPage.preencherNewEmail().type('Email');
+    CadastroPage.preencherNewPassword().type('Senha');
 })
 And('aceitar os termos', () => {
     CadastroPage.checkandoBoxTerms();
@@ -55,10 +54,10 @@ When('o usuario clicar em create a new account', () => {
     CadastroPage.createNewAcc();
 })
 And('preencher o formulario', () => {
-    CadastroPage.preencherFirstName().type('Aninha');
-    CadastroPage.preencherLastName().type('Teste');
-    CadastroPage.preencherNewEmail().type('dycjh@example6.com');
-    CadastroPage.preencherNewPassword().type('12345678');
+    CadastroPage.preencherFirstName().type('First Name');
+    CadastroPage.preencherLastName().type('Last Name');
+    CadastroPage.preencherNewEmail().type('Email');
+    CadastroPage.preencherNewPassword().type('Senha');
 })
 But('nao aceitar os termos', () => {
     CadastroPage.checkandoBoxTerms();
@@ -73,12 +72,11 @@ Then('o usuario nao e cadastrado com sucesso e retorna mensagem de termos nao ac
 When('o usuario clicar em create a new account', () => {
     CadastroPage.createNewAcc();
 })
-And('preencher o formulario', () => {
-    CadastroPage.preencherFirstName().type('Aninha');
-    CadastroPage.preencherLastName().type('Teste');
-})
-But('preencher o email incompleto', () => {
-    CadastroPage.preencherNewEmail().type('teste@t');
+But('preencher o formulario com email incompleto', () => {
+    CadastroPage.preencherFirstName().type('First Name');
+    CadastroPage.preencherLastName().type('Last Name');
+    CadastroPage.preencherNewEmail().type('Email');
+    CadastroPage.preencherNewPassword();
 })
 Then('o usuario nao e cadastrado com sucesso e retorna mensagem de email invalido', () => {
     CadastroPage.validEmailInvalid();
@@ -89,13 +87,13 @@ Then('o usuario nao e cadastrado com sucesso e retorna mensagem de email invalid
 When('o usuario clicar em create a new account', () => {
     CadastroPage.createNewAcc();
 })
-And('preencher o formulario', () => {
-    CadastroPage.preencherFirstName().type('Aninha');
-    CadastroPage.preencherLastName().type('Teste');
-    CadastroPage.preencherNewEmail().type('dycjh@example6.com')
-})
 But('preencher a senha com apenas 7 caracteres', () => {
-    CadastroPage.preencherNewPassword().type('1234567');
+    CadastroPage.preencherFirstName().type('First Name');
+    CadastroPage.preencherLastName().type('Last Name');
+    CadastroPage.preencherNewEmail().type('Email')
+    CadastroPage.preencherNewPassword().type('Senha');
+    CadastroPage.checkandoBoxTerms();
+    CadastroPage.clickBtnSignUp();
 })
 Then('o usuario nao e cadastrado com sucesso e retorna mensagem de senha invalido', () => {
     CadastroPage.validPasswordInvalid();

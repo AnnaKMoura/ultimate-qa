@@ -31,6 +31,6 @@ export default class ElementsCad {
         return cy.get('[id="user[email]-error"]');
     }
     static errorInvalidPass(){
-        return cy.get('[id="user[password]-error"]');
+        return cy.get('.form-error__list-item');
     }
 }
