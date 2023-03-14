@@ -1,6 +1,7 @@
 /// <reference types= 'Cypress' />
 /* global Then, When, Given */
 
+const { type } = require('cypress/types/jquery');
 const CadastroPage = require('../index/cadastro.page')
 
 //------------------------- Cadastrando usuario valido
@@ -11,7 +12,7 @@ When('o usuario clicar em create a new account', () => {
 And('preencher o formulario', () => {
     CadastroPage.preencherFirstName().type('Aninha');
     CadastroPage.preencherLastName().type('Teste');
-    CadastroPage.preencherNewEmail().type('dycjh@example3.com');
+    CadastroPage.preencherNewEmail().type('dycjh@example5.com');
     CadastroPage.preencherNewPassword().type('12345678');
 
 })
@@ -77,7 +78,7 @@ And('preencher o formulario', () => {
     CadastroPage.preencherLastName().type('Teste');
 })
 But('preencher o email incompleto', () => {
-    CadastroPage.preencherNewEmail('teste@t');
+    CadastroPage.preencherNewEmail().type('teste@t');
 })
 Then('o usuario nao e cadastrado com sucesso e retorna mensagem de email invalido', () => {
     CadastroPage.validEmailInvalid();
@@ -94,7 +95,7 @@ And('preencher o formulario', () => {
     CadastroPage.preencherNewEmail().type('dycjh@example6.com')
 })
 But('preencher a senha com apenas 7 caracteres', () => {
-    CadastroPage.preencherNewPassword('1234567')
+    CadastroPage.preencherNewPassword().type('1234567');
 })
 Then('o usuario nao e cadastrado com sucesso e retorna mensagem de senha invalido', () => {
     CadastroPage.validPasswordInvalid();
